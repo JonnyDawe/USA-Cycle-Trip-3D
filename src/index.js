@@ -32,6 +32,9 @@ let confettis = confetti.create(mycanvas, {
     useWorker: true,
 })
 
+
+let c =         "dsfsdf"
+
 view.on('click', (event) => {
     console.log(event)
     confettis({
