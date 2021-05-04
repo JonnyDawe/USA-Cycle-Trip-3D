@@ -1,48 +1,51 @@
 {
-  "name": "usa-cycle-trip-3d",
-  "version": "1.0.0",
-  "description": "3D Map of Cycle Gpx Routes",
-  "main": "src/index.js",
-  "scripts": {
-    "start": "snowpack dev",
-    "clean": "snowpack dev --reload",
-    "copy": "ncp ./node_modules/@arcgis/core/assets ./build//assets",
-    "build": "snowpack build && npm run copy"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JonnyDawe/USA-Cycle-Trip-3D.git"
-  },
-  "author": "Jonathan Dawe",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/JonnyDawe/USA-Cycle-Trip-3D/issues"
-  },
-  "homepage": "https://github.com/JonnyDawe/USA-Cycle-Trip-3D#readme",
-  "devDependencies": {
-    "@snowpack/plugin-webpack": "^2.3.1",
-    "husky": "^6.0.0",
-    "ncp": "^2.0.0",
-    "pretty-quick": "^3.1.0",
-    "snowpack": "~3.0.11"
-  },
-  "dependencies": {
-    "@arcgis/core": "^4.19.1",
-    "canvas-confetti": "^1.4.0"
-  },
-  "browser": {
-    "fs": false,
-    "path": false
-  },
-  "prettier": {
-    "trailingComma": "es5",
-    "tabWidth": 4,
-    "semi": false,
-    "singleQuote": true
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
+    "name": "usa-cycle-trip-3d",
+    "version": "1.0.0",
+    "description": "3D Map of Cycle Gpx Routes",
+    "main": "src/index.js",
+    "scripts": {
+        "prepare": "husky install",
+        "start": "snowpack dev",
+        "clean": "snowpack dev --reload",
+        "copy": "ncp ./node_modules/@arcgis/core/assets ./build//assets",
+        "build": "snowpack build && npm run copy",
+        "pretty-quick": "pretty-quick"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JonnyDawe/USA-Cycle-Trip-3D.git"
+    },
+    "author": "Jonathan Dawe",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/JonnyDawe/USA-Cycle-Trip-3D/issues"
+    },
+    "homepage": "https://github.com/JonnyDawe/USA-Cycle-Trip-3D#readme",
+    "devDependencies": {
+        "@snowpack/plugin-webpack": "^2.3.1",
+        "husky": "^6.0.0",
+        "ncp": "^2.0.0",
+        "prettier": "^2.2.1",
+        "pretty-quick": "^3.1.0",
+        "snowpack": "~3.0.11"
+    },
+    "dependencies": {
+        "@arcgis/core": "^4.19.1",
+        "canvas-confetti": "^1.4.0"
+    },
+    "browser": {
+        "fs": false,
+        "path": false
+    },
+    "prettier": {
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged"
+        }
     }
-  }
 }
