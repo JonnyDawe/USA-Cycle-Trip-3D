@@ -2,7 +2,7 @@
     "name": "usa-cycle-trip-3d",
     "version": "1.0.0",
     "description": "3D Map of Cycle Gpx Routes",
-    "main": "src/index.js",
+    "main": "src/index.ts",
     "scripts": {
         "prepare": "husky install",
         "start": "snowpack dev",
@@ -22,16 +22,18 @@
     },
     "homepage": "https://github.com/JonnyDawe/USA-Cycle-Trip-3D#readme",
     "devDependencies": {
-        "@snowpack/plugin-webpack": "^2.3.1",
+        "@snowpack/plugin-typescript": "^1.2.1",
+        "@snowpack/plugin-webpack": "^3.0.0",
         "husky": "^6.0.0",
         "ncp": "^2.0.0",
         "prettier": "^2.2.1",
         "pretty-quick": "^3.1.0",
-        "snowpack": "~3.0.11"
+        "snowpack": "~3.0.11",
+        "tslib": "^2.2.0",
+        "typescript": "^4.2.4"
     },
     "dependencies": {
-        "@arcgis/core": "^4.19.1",
-        "canvas-confetti": "^1.4.0"
+        "@arcgis/core": "^4.19.1"
     },
     "browser": {
         "fs": false,

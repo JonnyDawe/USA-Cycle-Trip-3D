@@ -1,11 +1,15 @@
 // snowpack.config.js
 module.exports = {
     mount: {
-        "node_modules/@arcgis/core/assets": {url: "/assets", static: true, resolve: false},
-        "src": "/",
+        'node_modules/@arcgis/core/assets': {
+            url: '/assets',
+            static: true,
+            resolve: false,
+        },
+        src: '/',
     },
-    plugins: [["@snowpack/plugin-webpack"]],
-    buildOptions:{
-        baseUrl:"./"
-    }
-};
+    plugins: [['@snowpack/plugin-webpack'], ['@snowpack/plugin-typescript']],
+    buildOptions: {
+        baseUrl: './',
+    },
+}
