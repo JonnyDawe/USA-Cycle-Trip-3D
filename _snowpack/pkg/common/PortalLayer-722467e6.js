@@ -1,0 +1,17 @@
+import { e, o } from './JSONSupport-9346590f.js';
+import { a as n$2, z, L, P as P$1 } from './Loadable-d16b3d7d.js';
+import { a as a$1 } from './asyncUtils-015dfd6e.js';
+import { a, g, w as w$1, s } from './promiseUtils-2ff2b194.js';
+import { n, t, r } from './Message-70b34921.js';
+import { y, n as n$1 } from './subclass-fe5fcf78.js';
+import { e as e$1 } from './reader-fa0f173d.js';
+import { G, p } from './Portal-ff63481f.js';
+import b from './PortalItem-4692b2a9.js';
+
+/*
+All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+See https://js.arcgis.com/4.20/esri/copyright.txt for details.
+*/
+const j=n.getLogger("esri.layers.mixins.PortalLayer"),w=i=>{let w=class extends i{constructor(){super(...arguments),this.resourceReferences={portalItem:null,paths:[]},this.userHasEditingPrivileges=!0;}destroy(){var t;null==(t=this.portalItem)||t.destroy(),this.portalItem=null;}set portalItem(t){t!==this._get("portalItem")&&(this.removeOrigin("portal-item"),this._set("portalItem",t));}readPortalItem(t,e,r){if(e.itemId)return new b({id:e.itemId,portal:r&&r.portal})}writePortalItem(t,e){t&&t.id&&(e.itemId=t.id);}async loadFromPortal(t,e){if(this.portalItem&&this.portalItem.id)try{const r=await import('./layersLoader-d4900878.js').then(function (n) { return n.l; });return a(e),await r.load({instance:this,supportedTypes:t.supportedTypes,validateItem:t.validateItem,supportsData:t.supportsData},e)}catch(r){throw g(r)||j.warn(`Failed to load layer (${this.title}, ${this.id}) portal item (${this.portalItem.id})\n  ${r}`),r}}async finishLoadEditablePortalLayer(t){this._set("userHasEditingPrivileges",await this.fetchUserHasEditingPrivileges(t).catch((t=>(w$1(t),!0))));}async fetchUserHasEditingPrivileges(t$1){const r=this.url?null==n$2?void 0:n$2.findCredential(this.url):null;if(!r)return !0;const s=P.credential===r?P.user:await this.fetchEditingUser(t$1);return P.credential=r,P.user=s,t(s)||null==s.privileges||s.privileges.includes("features:user:edit")}async fetchEditingUser(t){var o,i;const a=null==(o=this.portalItem)||null==(i=o.portal)?void 0:i.user;if(a)return a;const n=n$2.findServerInfo(this.url);if(null==n||!n.owningSystemUrl)return null;const p$1=`${n.owningSystemUrl}/sharing/rest`,m=G.getDefault();if(m&&m.loaded&&z(m.restUrl)===z(p$1))return m.user;const c=`${p$1}/community/self`,d=r(t)?t.signal:null,h=await a$1(L(c,{authMode:"no-prompt",query:{f:"json"},signal:d}));return h.ok?p.fromJSON(h.value.data):null}read(t,e){e&&(e.layer=this),super.read(t,e);}write(t,e){const r=e&&e.portal,s$1=this.portalItem&&this.portalItem.id&&(this.portalItem.portal||G.getDefault());return r&&s$1&&!P$1(s$1.restUrl,r.restUrl)?(e.messages&&e.messages.push(new s("layer:cross-portal",`The layer '${this.title} (${this.id})' cannot be persisted because it refers to an item on a different portal than the one being saved to. To save the scene, set the layer.portalItem to null or save the scene to the same portal as the item associated with the layer`,{layer:this})),null):super.write(t,{...e,layer:this})}};return e([y({type:b})],w.prototype,"portalItem",null),e([e$1("web-document","portalItem",["itemId"])],w.prototype,"readPortalItem",null),e([o("web-document","portalItem",{itemId:{type:String}})],w.prototype,"writePortalItem",null),e([y()],w.prototype,"resourceReferences",void 0),e([y({readOnly:!0})],w.prototype,"userHasEditingPrivileges",void 0),w=e([n$1("esri.layers.mixins.PortalLayer")],w),w},P={credential:null,user:null};
+
+export { w };

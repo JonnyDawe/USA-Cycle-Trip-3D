@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "@arcgis/core/Map": "./@arcgis/core/Map.js",
+    "@arcgis/core/core/accessorSupport/decorators": "./@arcgis/core/core/accessorSupport/decorators.js",
+    "@arcgis/core/core/watchUtils": "./@arcgis/core/core/watchUtils.js",
+    "@arcgis/core/geometry/Point": "./@arcgis/core/geometry/Point.js",
+    "@arcgis/core/geometry/SpatialReference": "./@arcgis/core/geometry/SpatialReference.js",
+    "@arcgis/core/geometry/geometryEngine": "./@arcgis/core/geometry/geometryEngine.js",
+    "@arcgis/core/layers/BaseElevationLayer": "./@arcgis/core/layers/BaseElevationLayer.js",
+    "@arcgis/core/layers/ElevationLayer": "./@arcgis/core/layers/ElevationLayer.js",
+    "@arcgis/core/layers/FeatureLayer": "./@arcgis/core/layers/FeatureLayer.js",
+    "@arcgis/core/layers/support/LabelClass": "./@arcgis/core/layers/support/LabelClass.js",
+    "@arcgis/core/symbols/SimpleLineSymbol": "./@arcgis/core/symbols/SimpleLineSymbol.js",
+    "@arcgis/core/views/MapView": "./@arcgis/core/views/MapView.js",
+    "@arcgis/core/views/SceneView": "./@arcgis/core/views/SceneView.js"
+  }
+}

@@ -1,0 +1,31 @@
+import { s } from './promiseUtils-2ff2b194.js';
+import { n } from './Message-70b34921.js';
+import './mathUtils-a477cc74.js';
+import { h as e } from './JSONSupport-9346590f.js';
+import './Texture-454f8135.js';
+
+/*
+All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+See https://js.arcgis.com/4.20/esri/copyright.txt for details.
+*/
+function M$1(n){return [255&n,(65280&n)>>>8,(16711680&n)>>>16,(4278190080&n)>>>24]}function m$1(n,r){return 65535&n|r<<16}function w$1(n,r,t,u){return 255&n|(255&r)<<8|(255&t)<<16|u<<24}
+
+/*
+All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+See https://js.arcgis.com/4.20/esri/copyright.txt for details.
+*/
+var E$1,T$1,I$1,L$1,A$1,_$1,O$1;!function(E){E[E.FILL=0]="FILL",E[E.LINE=1]="LINE",E[E.MARKER=2]="MARKER",E[E.TEXT=3]="TEXT",E[E.LABEL=4]="LABEL";}(E$1||(E$1={})),function(E){E[E.SUCCEEDED=0]="SUCCEEDED",E[E.FAILED_OUT_OF_MEMORY=1]="FAILED_OUT_OF_MEMORY";}(T$1||(T$1={})),function(E){E[E.NONE=0]="NONE",E[E.MAP=1]="MAP",E[E.LABEL=2]="LABEL",E[E.LABEL_ALPHA=4]="LABEL_ALPHA",E[E.HITTEST=8]="HITTEST",E[E.HIGHLIGHT=16]="HIGHLIGHT",E[E.CLIP=32]="CLIP",E[E.DEBUG=64]="DEBUG",E[E.NUM_DRAW_PHASES=9]="NUM_DRAW_PHASES";}(I$1||(I$1={})),function(E){E[E.SIZE=0]="SIZE",E[E.COLOR=1]="COLOR",E[E.OPACITY=2]="OPACITY",E[E.ROTATION=3]="ROTATION";}(L$1||(L$1={})),function(E){E[E.NONE=0]="NONE",E[E.OPACITY=1]="OPACITY",E[E.COLOR=2]="COLOR",E[E.ROTATION=4]="ROTATION",E[E.SIZE_MINMAX_VALUE=8]="SIZE_MINMAX_VALUE",E[E.SIZE_SCALE_STOPS=16]="SIZE_SCALE_STOPS",E[E.SIZE_FIELD_STOPS=32]="SIZE_FIELD_STOPS",E[E.SIZE_UNIT_VALUE=64]="SIZE_UNIT_VALUE";}(A$1||(A$1={})),function(E){E[E.MINMAX_TARGETS_OUTLINE=128]="MINMAX_TARGETS_OUTLINE",E[E.SCALE_TARGETS_OUTLINE=256]="SCALE_TARGETS_OUTLINE",E[E.FIELD_TARGETS_OUTLINE=512]="FIELD_TARGETS_OUTLINE",E[E.UNIT_TARGETS_OUTLINE=1024]="UNIT_TARGETS_OUTLINE";}(_$1||(_$1={})),function(E){E[E.SPRITE=0]="SPRITE",E[E.GLYPH=1]="GLYPH";}(O$1||(O$1={}));
+
+/*
+All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+See https://js.arcgis.com/4.20/esri/copyright.txt for details.
+*/
+class h$1{constructor(){this.color=[0,0,0,0],this.haloColor=[0,0,0,0],this.haloSize=0,this.size=12,this.angle=0,this.offsetX=0,this.offsetY=0,this.hAnchor=0,this.vAnchor=0;}acquire(o,h,s,t,i,l,r,e,c){this.color=o,this.haloColor=h,this.haloSize=s,this.size=t,this.angle=i,this.offsetX=l,this.offsetY=r,this.hAnchor=e,this.vAnchor=c;}release(){this.color[0]=this.color[1]=this.color[2]=this.color[3]=0,this.haloColor[0]=this.haloColor[1]=this.haloColor[2]=this.haloColor[3]=0,this.haloSize=0,this.size=0,this.angle=0,this.offsetX=0,this.offsetY=0,this.hAnchor=0,this.vAnchor=0;}}h$1.pool=new e(h$1);
+
+/*
+All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+See https://js.arcgis.com/4.20/esri/copyright.txt for details.
+*/
+const u=n.getLogger("esri.views.2d.engine.webgl.Utils"),f="geometry",m=[{name:f,strideInBytes:36,divisor:0}],p=[{name:f,strideInBytes:36,divisor:0}],h=[{name:f,strideInBytes:12,divisor:0}],w=[{name:f,strideInBytes:40,divisor:0}],v=[{name:f,strideInBytes:36,divisor:0}],y=[{name:f,strideInBytes:36,divisor:0}];function g(e){const t={};for(const r of e)t[r.name]=r.strideInBytes;return t}const A=g(m),L=g(p),I=g(h),E=g(w),b=g(v),M=g(y);function T(e,t){switch(e){case E$1.MARKER:return A;case E$1.FILL:return t?I:L;case E$1.LINE:return E;case E$1.TEXT:return b;case E$1.LABEL:return M}}const x=[f],U=[f],B=[f],F=[f],z=[f];function j(e){switch(e){case E$1.MARKER:return x;case E$1.FILL:return U;case E$1.LINE:return B;case E$1.TEXT:return F;case E$1.LABEL:return z}}function C(e){switch(e%4){case 0:case 2:return 4;case 1:case 3:return 1}}function R(e,t){switch(t%4){case 0:case 2:return new Uint32Array(Math.floor(e*t/4));case 1:case 3:return new Uint8Array(e*t)}}function O(e,t){switch(t%4){case 0:case 2:return new Uint32Array(e);case 1:case 3:return new Uint8Array(e)}}function N(e){return null!=e}function K(e){return "number"==typeof e}function P(t){switch(t){case"butt":return 0;case"round":return 1;case"square":return 2;default:return u.error(new s("mapview-invalid-type",`Cap type ${t} is not a valid option. Defaulting to round`)),1}}function S(t){switch(t){case"miter":return 2;case"bevel":return 0;case"round":return 1;default:return u.error(new s("mapview-invalid-type",`Join type ${t} is not a valid option. Defaulting to round`)),1}}function X(e){switch(e){case"opacity":return L$1.OPACITY;case"color":return L$1.COLOR;case"rotation":return L$1.ROTATION;case"size":return L$1.SIZE;default:return u.error(`Cannot interpret unknown vv: ${e}`),null}}function _(e,t,r,n,o,s,i){for(const c in s){const t=s[c].stride,n=C(t),i=s[c].data,a=r[c].data,u=t*o.vertexCount/n,f=t*e/n,l=t*o.vertexFrom/n;for(let e=0;e<u;++e)a[e+f]=i[e+l];}const a=o.indexCount;for(let c=0;c<a;++c)n[c+t]=i[c+o.indexFrom]-o.vertexFrom+e;}const q={[f]:35044};function D(e,t){const r=[];for(let n=0;n<5;++n){const o=j(n),s={};for(const e of o)s[e]={data:t(n,e)};r.push({data:e(n),buffers:s});}return r}function Y(e){switch(e){case 5120:case 5121:return 1;case 5122:case 5123:return 2;case 5126:case 5124:case 5125:return 4}}function G(t){switch(t){case 5121:return 1;case 32819:return 2;case 5126:return 4;default:return void u.error(new s("webgl-utils",`Unable to handle type ${t}`))}}function H(t){switch(t){case 5121:return Uint8Array;case 32819:return Uint16Array;case 5126:return Float32Array;default:return void u.error(new s("webgl-utils",`Unable to handle type ${t}`))}}function Q(e){const t={};for(const r in e){const n=e[r];let o=0;t[r]=n.map((e=>{const t={...e,normalized:e.normalized||!1,divisor:e.divisor||0,offset:o,stride:0};return o+=e.count*Y(e.type),t})),t[r].forEach((e=>e.stride=o));}return t}const V=e=>{const t=new Map;for(const r in e)for(const n of e[r])t.set(n.name,n.location);return t},W=e=>{const t={};for(const r in e){const n=e[r];t[r]=n.length?n[0].stride:0;}return t},ee=new Map,te=(e,t)=>{if(!ee.has(e)){const r=Q(t),n={strides:W(r),bufferLayouts:r,attributes:V(t)};ee.set(e,n);}return ee.get(e)};function re(e){e(E$1.FILL),e(E$1.LINE),e(E$1.MARKER),e(E$1.TEXT),e(E$1.LABEL);}
+
+export { A$1 as A, C, D, E$1 as E, G, H, I$1 as I, K, M$1 as M, N, O$1 as O, P, R, S, T, X, _, O as a, _$1 as b, m$1 as m, q, re as r, te as t, w$1 as w };

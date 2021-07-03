@@ -1,0 +1,15 @@
+import { e, p } from './JSONSupport-9346590f.js';
+import { o } from './Color-ae84a22a.js';
+import { h } from './Graphic-bb07b7e4.js';
+import { C as m$1 } from './mathUtils-a477cc74.js';
+import { r, t } from './Message-70b34921.js';
+import { y, n } from './subclass-fe5fcf78.js';
+import { S, k as d, v as y$1, i as y$2 } from './symbols-9e680ec7.js';
+
+/*
+All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+See https://js.arcgis.com/4.20/esri/copyright.txt for details.
+*/
+const m=[[0,179,255],[117,62,128],[0,104,255],[215,189,166],[32,0,193],[98,162,206],[102,112,129],[52,125,0],[142,118,246],[138,83,0],[92,122,255],[122,55,83],[0,142,255],[81,40,179],[0,200,244],[13,24,127],[0,170,147],[19,58,241],[22,44,35]];let b=class extends p{constructor(e){super(e),this.updating=!1,this.enablePolygons=!0,this.enableLabels=!0,this._polygons=new Map,this._labels=new Map,this._enabled=!0;}initialize(){this._symbols=m.map((e=>new S({color:[e[0],e[1],e[2],.6],outline:{color:"black",width:1}}))),this.update();}destroy(){this._enabled=!1,this.clear();}get enabled(){return this._enabled}set enabled(e){this._enabled!==e&&(this._enabled=e,this.update());}update(){if(!this._enabled)return void this.clear();const e=e=>{if(r(e.label))return e.label;let s=e.lij.toString();return r(e.loadPriority)&&(s+=` (${e.loadPriority})`),s},t$1=this.getTiles(),a=new Array,n=new Set((this._labels.size,this._labels.keys()));t$1.forEach(((p,m)=>{const b=p.lij.toString();n.delete(b);const g=p.lij[0],d$1=p.geometry;if(this.enablePolygons&&!this._polygons.has(b)){const e=new h({geometry:d$1,symbol:this._symbols[g%this._symbols.length]});this._polygons.set(b,e),a.push(e);}if(this.enableLabels){const n=e(p),g=m/(t$1.length-1),u=m$1(0,200,g),_=m$1(20,6,g)/.75,f=r(p.loadPriority)&&p.loadPriority>=t$1.length,w=new o([u,f?0:u,f?0:u]),j="3d"===this.view.type?()=>new d({verticalOffset:{screenLength:40/.75},callout:{type:"line",color:"white",border:{color:"black"}},symbolLayers:[new y$1({text:n,halo:{color:"white",size:1/.75},material:{color:w},size:_})]}):()=>new y$2({text:n,haloColor:"white",haloSize:1/.75,color:w,size:_});if(this._labels.has(b)){const e=this._labels.get(b),s=j();(t(e.symbol)||JSON.stringify(s)!==JSON.stringify(e.symbol))&&(e.symbol=s);}else {const e=new h({geometry:d$1.extent.center,symbol:j()});this._labels.set(b,e),a.push(e);}}}));const p=new Array;n.forEach((e=>{this._polygons.has(e)&&(p.push(this._polygons.get(e)),this._polygons.delete(e)),this._labels.has(e)&&(p.push(this._labels.get(e)),this._labels.delete(e));})),this.view.graphics.removeMany(p),this.view.graphics.addMany(a);}clear(){this.view.graphics.removeMany(Array.from(this._polygons.values())),this.view.graphics.removeMany(Array.from(this._labels.values())),this._polygons.clear(),this._labels.clear();}};e([y({constructOnly:!0})],b.prototype,"view",void 0),e([y({readOnly:!0})],b.prototype,"updating",void 0),e([y()],b.prototype,"enabled",null),b=e([n("esri.views.support.TileTreeDebugger")],b);
+
+export { b };

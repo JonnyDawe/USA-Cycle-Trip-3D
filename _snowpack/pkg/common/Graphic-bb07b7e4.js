@@ -1,0 +1,16 @@
+import { e, a } from './JSONSupport-9346590f.js';
+import { e as i } from './Loadable-d16b3d7d.js';
+import { M } from './PopupTemplate-d97f5e88.js';
+import { j } from './symbols-9e680ec7.js';
+import { r, y as y$1 } from './Message-70b34921.js';
+import { e as e$1 } from './uid-6beaca4c.js';
+import { y, n as n$1 } from './subclass-fe5fcf78.js';
+import { p } from './jsonUtils-f0a19240.js';
+
+/*
+All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+See https://js.arcgis.com/4.20/esri/copyright.txt for details.
+*/
+var m;let n=m=class extends a{constructor(...t){super(...t),this.isAggregate=!1,this.layer=null,this.popupTemplate=null,this.sourceLayer=null,Object.defineProperty(this,"uid",{value:e$1(),configurable:!0});}normalizeCtorArgs(t,e,r,o){return t&&!t.declaredClass?t:{geometry:t,symbol:e,attributes:r,popupTemplate:o}}set attributes(t){const e=this._get("attributes");e!==t&&(this._set("attributes",t),this._notifyLayer("attributes",e,t));}set geometry(t){const e=this._get("geometry");e!==t&&(this._set("geometry",t),this._notifyLayer("geometry",e,t));}set symbol(t){const e=this._get("symbol");e!==t&&(this._set("symbol",t),this._notifyLayer("symbol",e,t));}set visible(t){const e=this._get("visible");e!==t&&(this._set("visible",t),this._notifyLayer("visible",e,t));}getEffectivePopupTemplate(t=!1){if(this.popupTemplate)return this.popupTemplate;for(const e of [this.sourceLayer,this.layer])if(e){if("popupTemplate"in e&&e.popupTemplate)return e.popupTemplate;if(t&&"defaultPopupTemplate"in e&&r(e.defaultPopupTemplate))return e.defaultPopupTemplate}return null}getAttribute(t){return this.attributes&&this.attributes[t]}setAttribute(t,e){if(this.attributes){const r=this.getAttribute(t);this.attributes[t]=e,this._notifyLayer("attributes",r,e,t);}else this.attributes={[t]:e},this._notifyLayer("attributes",void 0,e,t);}getObjectId(){return this.sourceLayer&&"objectIdField"in this.sourceLayer&&this.sourceLayer.objectIdField?this.getAttribute(this.sourceLayer.objectIdField):null}toJSON(){return {geometry:r(this.geometry)?this.geometry.toJSON():null,symbol:r(this.symbol)?this.symbol.toJSON():null,attributes:{...this.attributes},popupTemplate:this.popupTemplate&&this.popupTemplate.toJSON()}}clone(){return new m(this.cloneProperties())}notifyGeometryChanged(){this._notifyLayer("geometry",this.geometry,this.geometry);}cloneProperties(){return {attributes:y$1(this.attributes),geometry:y$1(this.geometry),layer:this.layer,popupTemplate:this.popupTemplate&&this.popupTemplate.clone(),sourceLayer:this.sourceLayer,symbol:y$1(this.symbol),visible:this.visible}}_notifyLayer(t,e,r,o){if(!this.layer||!("graphicChanged"in this.layer))return;const s={graphic:this,property:t,oldValue:e,newValue:r};"attributes"===t&&(s.attributeName=o),this.layer.graphicChanged(s);}};e([y({value:null})],n.prototype,"attributes",null),e([y({value:null,types:i,json:{read:p}})],n.prototype,"geometry",null),e([y({type:Boolean})],n.prototype,"isAggregate",void 0),e([y()],n.prototype,"layer",void 0),e([y({type:M})],n.prototype,"popupTemplate",void 0),e([y()],n.prototype,"sourceLayer",void 0),e([y({value:null,types:j})],n.prototype,"symbol",null),e([y({type:Boolean,value:!0})],n.prototype,"visible",null),n=m=e([n$1("esri.Graphic")],n),function(t){t.generateUID=e$1;}(n||(n={}));var h=n;
+
+export { h };
